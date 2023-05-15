@@ -3,6 +3,9 @@
 const container = document.querySelector(".container")
 const choice = document.querySelector('#choice')
 const clear = document.querySelector('#clear')
+const rainbow = document.querySelector('#rainbow')
+const black = document.querySelector('#black')
+
 
 createGrid(16);
 
@@ -27,13 +30,25 @@ function createGrid(n) {
     for (let i = 0; i < (n * n); i++) {
         const cell = document.createElement("div");
         cell.classList.add("cell")
-        cell.style.border = "1px solid black";
         container.appendChild(cell)
+        cell.addEventListener('mouseover', () => {
+            if (black.checked != false) {
+                cell.style.backgroundColor = "black";
+            } else if (rainbow.checked != false) {
+                rainbowColors()
+                cell.style.backgroundColor = color;
+            }
+        })
     }
 }
 
 
-
+function rainbowColors() {
+    let r = parseInt(Math.floor(Math.random() * 256))
+    let g = parseInt(Math.floor(Math.random() * 256))
+    let b = parseInt(Math.floor(Math.random() * 256))
+    return color = `rgb(${r}, ${g}, ${b})`
+}
 
 
 
