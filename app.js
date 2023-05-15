@@ -6,6 +6,7 @@ const clear = document.querySelector('#clear')
 const rainbow = document.querySelector('#rainbow')
 const black = document.querySelector('#black')
 const gray = document.querySelector('#grayscale')
+const selectColor = document.querySelector('#selectColor')
 
 
 createGrid(16);
@@ -23,6 +24,9 @@ choice.addEventListener('click', () => {
 clear.addEventListener('click', () => {
     container.innerHTML = "";
     createGrid(16);
+    black.checked = false;
+    rainbow.checked = false;
+    gray.checked = false;
 })
 
 function createGrid(n) {
@@ -47,8 +51,19 @@ function createGrid(n) {
                 cell.style.backgroundColor = color;
             }
         })
+        selectColor.addEventListener('input', () => {
+            black.checked = false;
+            rainbow.checked = false;
+            gray.checked = false;
+            const chosenColor = selectColor.value;
+            cell.addEventListener('mouseover', () => {
+                if (black.checked !== true && gray.checked !== true && rainbow.checked !== true)
+                    cell.style.backgroundColor = chosenColor;
+            })
+        })
     }
 }
+
 
 
 function rainbowColors() {
