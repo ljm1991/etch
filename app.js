@@ -27,6 +27,7 @@ clear.addEventListener('click', () => {
     black.checked = false;
     rainbow.checked = false;
     gray.checked = false;
+    selectColor.value = "rgb(0, 0, 0)"
 })
 
 function createGrid(n) {
