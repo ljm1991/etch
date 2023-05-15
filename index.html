@@ -16,34 +16,33 @@
 
 <body>
     <h1>Etch-A-Sketch</h1>
-    <button>Set Grid Size</button>
+    <button id="choice">Set Grid Size</button>
     <div class="main">
         <div id="inputs">
             <div class="select">
                 <label for="black">Black</label>
-                <input type="radio" id="black" name="default" value="black">
+                <input type="radio" id="black" name="choice" value="black">
             </div>
             <div class="select">
                 <label for="rainbow">Rainbow</label>
-                <input type="radio" id="rainbow" name="rainbow" value="rainbow">
+                <input type="radio" id="rainbow" name="choice" value="rainbow">
             </div>
             <div class="select">
                 <label for="grayscale">Grayscale</label>
-                <input type="radio" id="grayscale" name="grayscale" value="grayscale">
+                <input type="radio" id="grayscale" name="choice" value="grayscale">
             </div>
             <div class="select">
                 <label for="selectColor">Choose Another Color:</label>
-                <input type="color" id="selectColor" name="userSelects" value="color">
+                <input type="color" id="selectColor" name="choice" value="color">
             </div>
             <div class="select">
-                <button>Clear</button>
+                <button id="clear">Clear</button>
             </div>
         </div>
         <div class="container">
-            <h1>This is a container</h1>
         </div>
     </div>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
