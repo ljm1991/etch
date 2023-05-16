@@ -39,28 +39,18 @@ function createGrid(n) {
         cell.classList.add("cell")
         container.appendChild(cell)
         cell.style.backgroundColor = "rgb(255, 255, 255)";
-        cell.addEventListener('mouseover', () => {
-            if (black.checked != false) {
-                cell.style.backgroundColor = "black";
-            } else if (rainbow.checked != false) {
-                rainbowColors()
-                cell.style.backgroundColor = color
-            } else if (gray.checked != false) {
-                let bgColor = cell.style.backgroundColor;
-                let numbersOnly = bgColor.split("(")[1].split(")")[0];
-                const numberArray = numbersOnly.split(",");
-                grayScale(numberArray);
-                cell.style.backgroundColor = color;
-            }
-        })
+        cell.addEventListener('mouseover', () => { draw(cell) })
+        cell.addEventListener('touchmove', () => { draw(cell) })
         selectColor.addEventListener('input', () => {
             black.checked = false;
             rainbow.checked = false;
             gray.checked = false;
             const chosenColor = selectColor.value;
             cell.addEventListener('mouseover', () => {
-                if (black.checked !== true && gray.checked !== true && rainbow.checked !== true)
-                    cell.style.backgroundColor = chosenColor;
+                userChoice(cell, chosenColor)
+            })
+            cell.addEventListener('touchmove', () => {
+                userChoice(cell, chosenColor)
             })
         })
     }
@@ -84,4 +74,23 @@ function grayScale(array) {
 }
 
 
+function draw(element) {
+    if (black.checked != false) {
+        element.style.backgroundColor = "black";
+    } else if (rainbow.checked != false) {
+        rainbowColors()
+        element.style.backgroundColor = color
+    } else if (gray.checked != false) {
+        let bgColor = element.style.backgroundColor;
+        let numbersOnly = bgColor.split("(")[1].split(")")[0];
+        const numberArray = numbersOnly.split(",");
+        grayScale(numberArray);
+        element.style.backgroundColor = color;
+    }
+}
+
+function userChoice(element, color) {
+    if (black.checked !== true && gray.checked !== true && rainbow.checked !== true)
+        element.style.backgroundColor = color;
+}
 
