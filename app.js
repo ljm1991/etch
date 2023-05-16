@@ -40,7 +40,7 @@ function createGrid(n) {
         container.appendChild(cell)
         cell.style.backgroundColor = "rgb(255, 255, 255)";
         cell.addEventListener('mouseover', () => { draw(cell) })
-        cell.addEventListener('touchstart', () => { draw(cell) })
+        cell.addEventListener('touchmove', () => { draw(cell) })
         selectColor.addEventListener('input', () => {
             black.checked = false;
             rainbow.checked = false;
@@ -49,7 +49,7 @@ function createGrid(n) {
             cell.addEventListener('mouseover', () => {
                 userChoice(cell, chosenColor)
             })
-            cell.addEventListener('touchstart', () => {
+            cell.addEventListener('touchmove', () => {
                 userChoice(cell, chosenColor)
             })
         })
