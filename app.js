@@ -12,10 +12,11 @@ const selectColor = document.querySelector('#selectColor')
 createGrid(16);
 
 choice.addEventListener('click', () => {
-    let num = prompt('Select the size of your grid (1-100)')
-    if (num < 1 || num > 100) {
-        prompt('Select the size of your grid (1-100)')
+    do {
+        let answer = prompt('Select the size of your grid using number values from 1-100')
+        num = parseInt(answer);
     }
+    while (num < 1 || num > 100 || isNaN(num) || num === " ")
     container.innerHTML = "";
     createGrid(num)
 }
