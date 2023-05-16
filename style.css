@@ -196,10 +196,17 @@ label {
 button {
     padding: 10px 20px;
     margin-top: 20px;
-    border-radius: 8%;
+    border-radius: 8px;
     background-color: #b8d8d8;
     color: #4f6367;
     font-size: 1.2rem;
+}
+
+.lockScreen {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
 }
 
 @media (max-width: 1130px) {
