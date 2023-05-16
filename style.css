@@ -178,6 +178,7 @@ h1 {
     width: 600px;
     background-color: white;
     display: grid;
+    touch-action: none;
 }
 
 .select {
